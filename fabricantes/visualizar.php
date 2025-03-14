@@ -1,3 +1,12 @@
+<?php
+
+/*Acessando as funções de fabricantes */
+require_once "../src/funcoes-fabricantes.php";
+
+/* Chamando a função responsável por carregar os dados dos fabricantes*/
+listarFabricantes($conexao);
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
