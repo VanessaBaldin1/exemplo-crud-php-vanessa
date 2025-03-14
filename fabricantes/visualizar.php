@@ -5,6 +5,10 @@ require_once "../src/funcoes-fabricantes.php";
 
 /* Chamando a função responsável por carregar os dados dos fabricantes*/
 $listaDeFabricantes = listarFabricantes($conexao);
+
+/*Contando os elementos/registros */
+$quantidade = count($listaDeFabricantes);
+
 ?>
 
 
@@ -29,7 +33,7 @@ $listaDeFabricantes = listarFabricantes($conexao);
 
 
         <table class="table table-hover table-bordered w-50">
-            <caption>Lista de Fabricantes</caption>
+            <caption>Lista de Fabricantes: <?=$quantidade?></caption>
             <thead class="table-light">
                 <tr>
                     <th>ID</th>
