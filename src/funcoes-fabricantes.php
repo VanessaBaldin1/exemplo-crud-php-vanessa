@@ -24,3 +24,8 @@ function listarFabricantes(PDO $conexao): array
      die("Erro: ".$erro-> getMessage());
   }
 }
+
+// inserirFabricante: usada pela página fabricante/inserir.php
+function inserirFabricante(PDO $conexao, string $nomeDoFabricante){
+  "INSERT "
+}
