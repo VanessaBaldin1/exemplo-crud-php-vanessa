@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 /*Acessando as funções de fabricantes */
 require_once "../src/funcoes-fabricantes.php";
