@@ -13,7 +13,7 @@ if (isset($_POST['atualizar'])) {
     $nome = filter_input(INPUT_POST, "nome", FILTER_SANITIZE_SPECIAL_CHARS);
 
     /* Exercício! Implemente a função para atualizar o nome do fabricante */
-    atualizarFabricante();
+    atualizarFabricante($conexao, $id, $nome);
 
 
     header("location:visualizar.php");
