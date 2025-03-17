@@ -26,9 +26,16 @@ $fabricante = listarUmFabricante($conexao, $id);
         <hr>
 
         <form action="" method="post" class="w-25">
+            <!-- Campo oculto (hidden): o formulário/servidor "sabe"do valor, mas não mostra para o usuário -->
+
+            <input type="hidden" name="id" value="<?=$fabricante['nome']?>">
+
             <div class="mb-3">
+
                 <label for="nome" class="form-label">Nome:</label>
-                <input class="form-control" required type="text" name="nome" id="nome">
+                <!-- Para aparecer o nome do fabricante incluir depois do input VALUE com php -->
+                <input value="<?=$fabricante['nome']?>"
+                 class="form-control" required type="text" name="nome" id="nome">
             </div>
             <button class="btn btn-warning" type="submit" name="atualizar">
                 Atualizar fabricante</button>
