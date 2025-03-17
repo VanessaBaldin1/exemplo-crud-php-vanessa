@@ -9,6 +9,7 @@ $fabricante = listarUmFabricante($conexao, $id);
 
 ?>
 
+
 <!DOCTYPE html>
 <html lang="pt-br">
 

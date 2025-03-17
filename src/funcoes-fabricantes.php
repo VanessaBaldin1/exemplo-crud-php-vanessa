@@ -27,7 +27,7 @@ function listarFabricantes(PDO $conexao): array
 
 // inserirFabricante: usada pela página fabricante/inserir.php
 function inserirFabricante(PDO $conexao, string $nomeDoFabricante):void{ //void indica que não tem retorno da função
-  
+
   /*: named parameter (parâmetro nomeado) 
   Usamos este recurso do PDO para 'reservar' um espaço seguro em memória para colocação do dado. Nunca passe de forma direta valores para comandos SQL*/  
   $sql = "INSERT INTO fabricantes(nome) VALUES(:nome)";
@@ -43,5 +43,21 @@ function inserirFabricante(PDO $conexao, string $nomeDoFabricante):void{ //void 
     $consulta->execute();
   } catch (Exception $erro) {
     die("Erro ao inserir: " .$erro->getMessage());
+  }
+}
+
+// listarUmfabricante: usada pela página fabricante/atualizar.php
+function listarUmFabricante(PDO $conexao, int $idFabricante): array{
+  $sql = "SELECT * FROM fabricantes WHERE id= :id";
+
+  try {
+     $consulta = $conexao->prepare($sql);
+     $consulta->bindValue(":id", $idFabricante, PDO::PARAM_INT);
+     $consulta->execute();
+     //Usar somente Fetch para chamar um só linha de registro, não todos como estava antes fetchAll (chama todos os registros constam na tabela)
+     //Usamos o fetch para garantir o retorno de um único array associativo com o resultado
+     return $consulta->fetch(PDO::FETCH_ASSOC);
+  } catch (Exception $erro) {
+    die("Erro ao carregar fabricante: ".$erro->getMessage());
   }
 }
