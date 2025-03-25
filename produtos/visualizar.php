@@ -25,7 +25,16 @@ $listarDeProdutos = listarProdutos($conexao);
 
         <p><a class="btn btn-primary btn-sm" href="inserir.php">Inserir novo produto</a></p>
 
-
+        <div class="row">
+            <div class="col-sm-6">
+                <article class="bg-body-secondary p-2">
+                    <h3>Nome do produto....</h3>
+                    <h4>Fabricante do produto...</h4>
+                    <p><b>Preço: </b> do produto</p>
+                    <p><b>Quantidade: </b> do produto</p>
+                </article>
+            </div>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
