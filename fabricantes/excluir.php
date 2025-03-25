@@ -6,10 +6,10 @@ require_once "../src/funcoes-fabricantes.php";
 /* Obtendo o valor do parâmetro via URL - links dinâmico*/
 $id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
 
-
-
-
-
+// verificando se houve o SIM para excluir
+if(isset($_GET['confirmar-exclusao'])){
+    echo "Excluir o fabricante".$id;
+}
 
 ?>
 
@@ -33,7 +33,9 @@ $id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
         
         <a href="visualizar.php" class="btn btn-secondary">Não</a>
 
-        <a href="visualizar.php" class="btn btn-danger">Sim</a>       
+        <!-- colocando dois parametro para ID no botao SIM
+         paramentro ID & contatena e parametro para o SIM -->
+        <a href="?id=<?=$id?>&confirmar-exclusao" class="btn btn-danger">Sim</a>       
     </div>
 
 </div>
