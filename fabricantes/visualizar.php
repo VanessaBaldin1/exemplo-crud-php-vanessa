@@ -50,8 +50,8 @@ $quantidade = count($listaDeFabricantes);
                     <td>
                         <!-- Configurando o link DINÂMICO
                          Passamos um parâmetro de URL para a página atualizar.php, Neste caso, o parâmetro chamado "id" contendo o valor do id do fabricante a ser editado. -->
-                        <a href="atualizar.php?id=<?=$fabricante['id']?>">Editar</a> 
-                        <a href="excluir.php?id=<?=$fabricante['id']?>">Excluir</a> 
+                        <a class="btn btn-warning btn-sm" href="atualizar.php?id=<?=$fabricante['id']?>">Editar</a> 
+                        <a class="btn btn-danger btn-sm"  href="excluir.php?id=<?=$fabricante['id']?>">Excluir</a> 
                     </td>
                 </tr>
 <?php    } ?>
