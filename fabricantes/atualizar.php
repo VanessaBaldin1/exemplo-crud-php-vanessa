@@ -1,7 +1,7 @@
 <?php
 require_once "../src/funcoes-fabricantes.php";
 
-/* Obtendo o valor do parâmetro via URL */
+/* Obtendo o valor do parâmetro via URL - links dinâmico*/
 $id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
 
 /* Chamando a função para carregar os dados de um fabricante */

@@ -70,8 +70,8 @@ function atualizarFabricante (PDO $conexao, int $idFabricante, string $nome): vo
     try {
     
       $consulta = $conexao->prepare($sql);
-      $consulta->bindValue(":id ", $idFabricante, PDO::PARAM_INT);
-      $consulta->bindValue(":nome ", $nome, PDO::PARAM_STR);
+      $consulta->bindValue(":id", $idFabricante, PDO::PARAM_INT);
+      $consulta->bindValue(":nome", $nome, PDO::PARAM_STR);
       $consulta->execute();
 
 
