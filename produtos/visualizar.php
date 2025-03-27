@@ -41,6 +41,7 @@ $quantidade = count($listaDeProdutos);
                     <!-- inclui formatarPreco da pagina de função utilitaria.php, formar de chamar a função é diferente -->
                     <p><b>Preço: <?=formatarPreco($produto["preco"])?> </b> </p>
                     <p><b>Quantidade: <?=$produto["quantidade"]?> </b></p>
+                    <p><b>Total:</b> <?=formatarPreco($produto["preco"] * $produto["quantidade"])?> </p>
                 </article>
             </div>
 
