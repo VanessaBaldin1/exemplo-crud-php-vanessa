@@ -2,7 +2,9 @@
 require_once "conecta.php";
 
 function listarProdutos(PDO $conexao):array {
-  $sql = "SELECT * FROM produtos";
+  //$sql = "SELECT * FROM produtos";
+
+  $sql = "SELECT id, nome, preco, quantidade";
 
   try {
     $consulta = $conexao->prepare($sql);
