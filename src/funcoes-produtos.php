@@ -35,14 +35,14 @@ function listarProdutos(PDO $conexao):array {
 
 function inserirProduto(PDO $conexao, string $nome, float $preco,
         int $quantidade, int $idfabricante, string $descricao):void {
-   $sql = "INSERT INTO produtos(nome, preco, quantidade, idfabricante, descricao) VALUES(:nome,:preco, :quantidade, :id, :descricao)";
+   $sql = "INSERT INTO produtos(nome, preco, quantidade, fabricante_id, descricao) VALUES(:nome,:preco, :quantidade, :id, :descricao)";
         
 
   try {
     $consulta = $conexao->prepare($sql);
     $consulta->bindValue(":nome", $nome, PDO::PARAM_STR);
-    $consulta->bindValue(":preco", $preco, PDO::PARAM_INT);
-    $consulta->bindValue(":quantidade", $quantidade, PDO::PAR);
+    $consulta->bindValue(":preco", $preco, PDO::PARAM_STR);
+    $consulta->bindValue(":quantidade", $quantidade, PDO::PARAM_INT);
     $consulta->bindValue(":id", $idfabricante, PDO::PARAM_INT);
     $consulta->bindValue(":descricao", $descricao, PDO::PARAM_STR);
 
