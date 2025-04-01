@@ -36,12 +36,15 @@ $quantidade = count($listaDeProdutos);
 <?php foreach ($listaDeProdutos as $produto){?>
             <div class="col-sm-6">
                 <article class="bg-body-secondary p-2">
-                    <h3>Nome do produto <?=$produto["produto"]?></h3>
-                    <h4>Fabricante do produto <?=$produto["fabricante"]?></h4>
+                    <h3><?=$produto["produto"]?></h3>
+                    <h4><?=$produto["fabricante"]?></h4>
                     <!-- inclui formatarPreco da pagina de função utilitaria.php, formar de chamar a função é diferente -->
                     <p><b>Preço: <?=formatarPreco($produto["preco"])?> </b> </p>
                     <p><b>Quantidade: <?=$produto["quantidade"]?> </b></p>
                     <p><b>Total:</b> <?=formatarPreco($produto["preco"] * $produto["quantidade"])?> </p>
+
+                    <!-- Incluindo Link dinâmico -->
+                    <a class="btn btn-warning btn-sm" href="atualizar.php?id=<?=$produto['id']?>">Atualizar produto</a>
                 </article>
             </div>
 
