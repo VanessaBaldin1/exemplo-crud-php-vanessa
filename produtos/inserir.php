@@ -5,10 +5,13 @@ require_once "../src/funcoes-produtos.php";
 $listaDeFabricantes = listarFabricantes($conexao);
 
 if(isset($_POST["inserir"])){
+    //capturar os dados do formulário
    //chamar a função responsável por inserir o produto e passar os parametros
     $nome = filter_input(INPUT_POST, "nome", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $preco = filter_input(INPUT_POST, "preco", FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
     $quantidade = filter_input(INPUT_POST, "quantidade", FILTER_SANITIZE_NUMBER_INT);
+
+    //Obs: LEMBRE-SE QUE CAPTURAMOS NA VERDADE O VALUE (QUE É PRÁTICA É O ID DO FABRICANTE)
     $idfabricante = filter_input(INPUT_POST, "fabricante", FILTER_SANITIZE_NUMBER_INT);
     $descricao = filter_input(INPUT_POST, "descricao", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
