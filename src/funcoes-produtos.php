@@ -71,3 +71,22 @@ function listarUmProduto(PDO $conexao, int $idproduto):array {
  }
 }
 
+
+// ATUALIZAR UM PRODUTO
+
+function atualizarProduto(PDO $conexao, int $idProduto, string $nome): void{
+  $sql = "UPDATE produtos SET nome = :nome WHERE id = :id";
+
+  try {
+    
+    $consulta = $conexao->prepare($sql);
+    $consulta->bindValue(":id", $idProduto, PDO::PARAM_INT);
+    $consulta->bindValue(":nome", $nome, PDO::PARAM_STR);
+    $consulta->execute();
+
+
+  } catch (Exception $erro) {
+    die("Erro ao atualizar produto: ".$erro->getMessage());
+  }
+
+}

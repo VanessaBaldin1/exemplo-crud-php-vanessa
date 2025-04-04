@@ -13,6 +13,23 @@ $id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
 $produto = listarUmProduto($conexao, $id);
 
 //var_dump($produto);
+
+//Verificando se o formulário de atualização foi acionado
+
+if (isset($_POST['atualizar'])) {
+    $nome = filter_input(INPUT_POST, "nome", FILTER_SANITIZE_SPECIAL_CHARS);
+
+    /* Exercício! Implemente a função para atualizar o nome do fabricante */
+    atualizarProduto($conexao, $id, $nome);
+
+
+    header("location:visualizar.php");
+    exit;
+
+
+}
+
+
 ?>
 
 
