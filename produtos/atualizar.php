@@ -1,6 +1,10 @@
 <?php
 require_once "../src/funcoes-produtos.php";
 
+//fazer a conexão com a funções fabricantes para configurar a lista suspensa na pagina de visualizar.php/produtos
+require_once "../src/funcoes-fabricantes.php";
+//fazer a conexão com a lista de fabricantes para aparecer na lista suspensa junto com  produtos
+$listaDeFabricantes = listarFabricantes($conexao);
 
 /* Obtendo o valor do parâmetro via URL - links dinâmico*/
 $id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
@@ -8,7 +12,7 @@ $id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
 /* Chamando a função para carregar os dados de um produto */
 $produto = listarUmProduto($conexao, $id);
 
-
+//var_dump($produto);
 ?>
 
 
@@ -43,10 +47,17 @@ $produto = listarUmProduto($conexao, $id);
             <div class="mb-3">
                 <label class="form-label" for="fabricante">Fabricante:</label>
                 <select class="form-select" name="fabricante" id="fabricante" required>
+                    
+                    <!-- Manter sempre um Option vazio para que a lista se inicie sem opção selecionada -->
                     <option value=""></option>
-                    <option value="">Fabricante 1...</option>
-                    <option value="">Fabricante 2...</option>
-                    <option value="">Fabricante 3...</option>
+
+
+                    <!-- configurando a LISTA SUSPENSA de fabricantes, utilizando foreach somente no OPtion para executar a chamada de nome do fabricante usando ID (chave primária no value)  e Nome na chamada dentreo do Option-->
+                    <?php foreach($listaDeFabricantes as $fabricante): ?>
+                    <option value="<?=$fabricante['id']?>"><?=$fabricante['nome']?></option>
+                    <?php endforeach; ?>
+
+
                 </select>
             </div>
             <div class="mb-3">
