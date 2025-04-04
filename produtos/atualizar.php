@@ -47,14 +47,29 @@ $produto = listarUmProduto($conexao, $id);
             <div class="mb-3">
                 <label class="form-label" for="fabricante">Fabricante:</label>
                 <select class="form-select" name="fabricante" id="fabricante" required>
-                    
+
                     <!-- Manter sempre um Option vazio para que a lista se inicie sem opção selecionada -->
                     <option value=""></option>
 
 
                     <!-- configurando a LISTA SUSPENSA de fabricantes, utilizando foreach somente no OPtion para executar a chamada de nome do fabricante usando ID (chave primária no value)  e Nome na chamada dentreo do Option-->
+
+
+
+
+                    <!-- Algoritmo para seleção do fabricante do produto que será editado
+                    Se a chave estrangeira da tabela produtos for igual a chave primária da tabela fabricantes, ou seja, se o id do fabricante do produto for igual ao id do fabricante, então coloque o atributo "selected" no <option> correspondente.
+                    -->
                     <?php foreach($listaDeFabricantes as $fabricante): ?>
-                    <option value="<?=$fabricante['id']?>"><?=$fabricante['nome']?></option>
+
+                    <!-- LEMBRE coloque sempre espaço antes e depois da palavra SELECTED para que evitar erros -->
+                    <option  
+                    
+                    
+                    <?php if($produto['fabricante_id'] === $fabricante['id']) echo " selected "?> 
+                    
+
+                            value="<?=$fabricante['id']?>"><?=$fabricante['nome']?></option>
                     <?php endforeach; ?>
 
 
