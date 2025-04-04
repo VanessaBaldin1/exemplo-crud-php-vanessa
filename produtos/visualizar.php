@@ -45,6 +45,8 @@ $quantidade = count($listaDeProdutos);
 
                     <!-- Incluindo Link dinâmico -->
                     <a class="btn btn-warning btn-sm" href="atualizar.php?id=<?=$produto['id']?>">Atualizar produto</a>
+
+                    <a class="btn btn-danger btn-sm"  href="excluir.php?id=<?=$produto['id']?>">Excluir</a> 
                 </article>
             </div>
 
