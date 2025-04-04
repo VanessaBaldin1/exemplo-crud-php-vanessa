@@ -74,14 +74,18 @@ function listarUmProduto(PDO $conexao, int $idproduto):array {
 
 // ATUALIZAR UM PRODUTO
 
-function atualizarProduto(PDO $conexao, int $idProduto, string $nome): void{
-  $sql = "UPDATE produtos SET nome = :nome WHERE id = :id";
+function atualizarProduto(PDO $conexao,  string $nome, int $idproduto, float $preco, int $quantidade, string $descricao, int $fabricante_id): void {
+  $sql = "UPDATE produtos SET nome = :nome, preco = :preco, quantidade = :quantidade, descricao = :descricao, fabricante_id = :fabricante_id WHERE id = :id";
 
   try {
     
     $consulta = $conexao->prepare($sql);
-    $consulta->bindValue(":id", $idProduto, PDO::PARAM_INT);
-    $consulta->bindValue(":nome", $nome, PDO::PARAM_STR);
+    $consulta->bindValue(":nome", $nome, PDO::PARAM_STR_CHAR);
+    $consulta->bindValue(":id", $idproduto, PDO::PARAM_INT);
+    $consulta->bindValue(":preco", $preco, PDO::PARAM_STR);
+    $consulta->bindValue(":quantidade", $quantidade, PDO::PARAM_INT);
+    $consulta->bindValue(":descricao", $descricao, PDO::PARAM_STR);
+    $consulta->bindValue(":fabricante_id", $fabricante_id, PDO::PARAM_INT);
     $consulta->execute();
 
 
